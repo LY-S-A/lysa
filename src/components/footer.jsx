@@ -1,12 +1,12 @@
 import React from 'react';
-// import { FaXTwitter, FaGithub, FaTelegram } from 'react-icons/fa6';
+import { FaXTwitter, FaGithub, FaTelegram } from 'react-icons/fa6';
 
 function Footer() {
     return (
         <footer className="footer">
             <div className="footer-container">
                 <p>>2025 LYΣA.</p>
-{/*                 <div className="social-icons">
+            <div className="social-icons">
                     <p>
                         <a href="https://x.com/xai" target="_blank" rel="noopener noreferrer">
                             <FaXTwitter />
@@ -20,7 +20,7 @@ function Footer() {
                             <FaGithub />
                         </a>
                     </p>
-                </div> */}
+                </div> 
             </div>
         </footer>
     );
