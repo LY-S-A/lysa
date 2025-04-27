@@ -1,0 +1,406 @@
+/* Import retro font (IBM Plex Mono) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+body {
+  background-color: #000;
+  background: url(/public/20250427_141430.png);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  margin: 0;
+  color: #00ff00;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+/* Retro CRT effect */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 20, 0, 0.8), #000);
+  box-shadow: inset 0 0 50px rgba(0, 255, 0, 0.2);
+  padding-top: 6px; /* Match header height on mobile */
+}
+
+/* Scan lines overlay */
+.app::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 255, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.container {
+  max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Retro glow effect */
+h1, h2, h3, .cta-button, .input-field, span {
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(0, 20, 0, 0.8);
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 100%;
+  background-color: #00ff00;
+  transition: width 0.2s ease;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Ensure content is not hidden under fixed header */
+.app {
+  padding-top: 8px; /* Match header height */
+}
+
+
+
+/* Hero Section */
+/* .hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.hero {
+  min-height: 70vh; /* Reduced from 100vh for mobile */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to reduce top space */
+  padding-top: 20px; /* Add padding to control spacing */
+}
+
+h1,
+.hero span {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  animation: flicker 3s infinite alternate;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.cta-button:hover {
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+/* About Section */
+.about {
+  padding: 40px 20px;
+  background-color: rgba(0, 20, 0, 0.8);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.first-grid,
+.second-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Features Section */
+.features {
+  padding: 40px 20px;
+  background-color: rgba(0, 20, 0, 0.5);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.feature-item {
+  padding: 20px;
+  border: 2px dashed #00ff00;
+  background: rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.feature-item:hover {
+  transform: scale(1.05);
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact {
+  padding: 40px 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input-field {
+  background-color: rgba(0, 20, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  background-color: rgba(0, 20, 0, 0.5);
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.social-icons a {
+  color: #0f0;
+  text-decoration: none;
+  transition: color 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  box-shadow: 0 0 3px rgba(0, 255, 0, 0.4);
+  margin: 0 10px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Adjust media queries for header */
+@media (max-width: 768px) {
+  .header {
+    height: 6px;
+  }
+  .app {
+    padding-top: 6px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    height: 7px;
+  }
+  .app {
+    padding-top: 7px;
+  }
+}
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+
+    .hero {
+      min-height: 50vh; /* Further reduce height for mobile */
+      padding-top: 10px; /* Reduce top padding */
+      align-items: flex-start; /* Keep content near top */
+    }
+  
+    h1,
+    .hero span {
+      font-size: 1.5rem; /* Slightly smaller to reduce perceived space */
+      margin-bottom: 15px; /* Reduced from 20px */
+    }
+  
+    .container {
+      padding: 10px; /* Reduced from 15px for tighter spacing */
+    }
+  
+    .hero-text {
+      flex-direction: column;
+      gap: 6px; /* Reduced from 8px */
+    }
+  
+    .cta-button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      min-width: 120px;
+    }
+
+  .about,
+  .features,
+  .contact {
+    padding: 30px 15px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+.footer{
+  padding: 20px;
+}
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .social-icons a {
+    margin: 5px;
+  }
+}
+
+/* Tablet Devices (768px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  h1,
+  .hero span {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    max-width: 95%;
+  }
+
+  .hero-text {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .grid-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .contact-form {
+    max-width: 80%;
+  }
+}
+
+/* Large Desktop (above 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  h1,
+  .hero span {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .grid-container {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
