@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
 function About() {
   return (
@@ -11,12 +12,12 @@ function About() {
         </p>
         <div className='grid-container'>
         <div className='first-grid'>
-            <p>.Real-time market signals</p>
-            <p>.Whispered alpha report</p>
+            <p><FaStar/> Real-time market signals</p>
+            <p><FaStar/> Whispered alpha report</p>
         </div>
         <div className='second-grid'>
-            <p>.Meme sector anomaly detection</p>
-            <p>.Chain monitoring beyond human speed</p>
+            <p><FaStar/> Meme sector anomaly detection</p>
+            <p><FaStar/> Chain monitoring beyond human speed</p>
         </div>
         </div>
         
