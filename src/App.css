@@ -205,6 +205,49 @@ h2 {
   margin-bottom: 10px;
 }
 
+/* CopyCa Section */
+.copyca {
+  padding: 40px 20px;
+  background-color: rgba(0, 20, 0, 0.7);
+}
+
+.copyca h2 {
+  margin-top: 0; /* Reduce margin-top to move "Copy Link" up */
+}
+
+.copyca-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+}
+
+.copyca-input {
+  width: 100%;
+  text-align: left;
+  padding-right: 100px; /* Space for the button */
+  cursor: default;
+}
+
+.copyca-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 80px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+
 /* Contact Section */
 .contact {
   padding: 40px 20px;
@@ -402,5 +445,50 @@ h2 {
   .grid-container {
     flex-direction: row;
     gap: 30px;
+  }
+}
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+  .copyca {
+    padding: 30px 15px;
+  }
+
+  .copyca-content {
+    gap: 10px;
+  }
+
+  .copyca-input {
+    font-size: 0.9rem;
+    padding: 8px 80px 8px 8px; /* Adjust padding for button */
+  }
+
+  .copyca-button {
+    min-width: 60px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    right: 4px;
+  }
+}
+
+/* Tablet Devices (768px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .copyca-content {
+    max-width: 80%;
+  }
+
+  .copyca-input {
+    padding-right: 90px;
+  }
+
+  .copyca-button {
+    min-width: 70px;
+  }
+}
+
+/* Large Desktop (above 1200px) */
+@media (min-width: 1200px) {
+  .copyca-content {
+    max-width: 600px;
   }
 }
