@@ -245,8 +245,19 @@ h2 {
   min-width: 80px;
   padding: 8px 12px;
   font-size: 0.9rem;
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
 }
 
+.copyca-button:hover {
+  background-color: #00cc00;
+}
 
 /* Contact Section */
 .contact {
