@@ -1,29 +1,40 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+// ./components/copyca.jsx
+import React, { useState } from 'react';
 
-function About() {
+function CopyCa() {
+  const [copied, setCopied] = useState(false);
+  const textToCopy = "AFMyfmGLmZ7VGfqbQ3aUaHtNQnH3mE4T1foJyimppump"; // Replace with the actual text/link you want to copy
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset "copied" state after 2 seconds
+    });
+  };
+
   return (
-    <section className="about">
+    <section className="copyca">
       <div className="container">
-        <h2>About LYΣA</h2>
-        <p className='about-text'>
-          Ressurected from forgotten code, LYSA scans chains and mempools
-          to detect alpha before the herd moves.
-        </p>
-        <div className='grid-container'>
-        <div className='first-grid'>
-            <p><FaStar/> Real-time market signals</p>
-            <p><FaStar/> Whispered alpha report</p>
+        <h2>Copy CA</h2>
+        <div className="copyca-content">
+          <div className="input-wrapper">
+            <input
+              type="text"
+              className="input-field copyca-input"
+              value={textToCopy}
+              readOnly
+            />
+            <button
+              className="cta-button copyca-button"
+              onClick={handleCopy}
+            >
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
         </div>
-        <div className='second-grid'>
-            <p><FaStar/> Meme sector anomaly detection</p>
-            <p><FaStar/> Chain monitoring beyond human speed</p>
-        </div>
-        </div>
-        
       </div>
     </section>
   );
 }
 
-export default About;
+export default CopyCa;
