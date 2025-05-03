@@ -1,47 +1,33 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    const form = e.target;
-    const formData = {
-      name: form[0].value, // Input for Name
-      email: form[1].value, // Input for Email
-      message: form[2].value, // Textarea for Message
-    };
-
-    try {
-      const response = await fetch(
-        process.env.NODE_ENV === 'production'
-          ? 'https://lysa-backend.vercel.app/api/contact/send' // Replace with your deployed backend URL
-          : 'http://localhost:3000/api/contact/send',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+    // Send email using EmailJS
+    emailjs
+      .sendForm(
+        'service_9btp5ua', // Replace with your EmailJS Service ID
+        'template_yzsynoo', // Replace with your EmailJS Template ID
+        e.target,
+        'n426AtBQ_MBWbrM4I' // Replace with your EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          setIsLoading(false);
+          e.target.reset(); // Reset form fields
+          alert('Message sent successfully!');
+        },
+        (error) => {
+          setIsLoading(false);
+          console.error('EmailJS error:', error.text);
+          alert('Failed to send message. Please try again.');
         }
       );
-
-      const result = await response.json();
-      setIsLoading(false);
-
-      if (response.ok) {
-        form.reset(); // Reset form fields
-        alert('Message sent successfully!');
-      } else {
-        alert(result.error || 'Failed to send message.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setIsLoading(false);
-      alert('Failed to send message. Please try again.');
-    }
   };
 
   return (
@@ -52,17 +38,20 @@ function Contact() {
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
             type="text"
+            name="name" // Must match the template variable in EmailJS
             placeholder="Name"
             className="input-field"
             required
           />
           <input
             type="email"
+            name="email" // Must match the template variable in EmailJS
             placeholder="Email"
             className="input-field"
             required
           />
           <textarea
+            name="message" // Must match the template variable in EmailJS
             placeholder="Message"
             className="input-field textarea"
             required
