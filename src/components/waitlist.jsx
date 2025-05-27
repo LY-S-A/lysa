@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaXTwitter, FaGithub, FaTelegram } from 'react-icons/fa6';
-import './waitlist.css';
+import '../styles/waitlist.css';
 
 const LoadingBar = ({ progress }) => {
   return (
