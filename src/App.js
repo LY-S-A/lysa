@@ -9,7 +9,6 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
       <div className="App">
         <Header />
                 <Hero />
@@ -18,9 +17,7 @@ function App() {
                 <CopyCa />
                 <Contact />
                 <Footer />
-        </Routes>
       </div>
-    </Router>
   );
 }
 
