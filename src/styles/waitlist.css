@@ -1,14 +1,3 @@
-
-/* Prevent scrolling on the entire page */
-body {
-    margin: 0;
-    overflow: hidden;
-    background: #000 url('/public/bg-img.png') no-repeat center fixed;
-    background-size: cover; /* Scale to fill viewport */
-    font-family: 'Courier New', Courier, monospace;
-    background-blend-mode: overlay;
-}
-
 body::before {
     content: '';
     position: fixed;
