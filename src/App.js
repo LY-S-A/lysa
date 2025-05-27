@@ -30,7 +30,6 @@ import Features from './components/features';
 import CopyCa from './components/ca';
 import Contact from './components/contact';
 import Footer from './components/footer';
-import Waitlist from './components/waitlist';
 import './App.css';
 
 function App() {
