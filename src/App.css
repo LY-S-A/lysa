@@ -393,6 +393,517 @@ h2 {
   margin: 0 10px;
 }
 
+/* Import retro font (already included in your main CSS) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+/* Waitlist Container */
+.waitlist-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: rgba(0, 20, 0, 0.8);
+  position: relative;
+  box-shadow: inset 0 0 50px rgba(0, 255, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Scan lines overlay for waitlist container */
+.waitlist-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 255, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Loading Bar */
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(0, 20, 0, 0.8);
+  z-index: 100;
+}
+
+.loading-bar-progress {
+  height: 100%;
+  background-color: #00ff00;
+  transition: width 0.2s ease;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Command Game (Start Prompt and Form) */
+.cmd-game,
+.start-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  background: rgba(0, 20, 0, 0.7);
+  border: 2px dashed #00ff00;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.cmd-prompt {
+  font-size: 1.2rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  margin-bottom: 10px;
+}
+
+.cmd-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.cmd-input {
+  flex: 1;
+  background-color: rgba(0, 20, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #00ff00;
+  box-sizing: border-box;
+}
+
+.cmd-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.cmd-submit {
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.cmd-submit:hover {
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* Command Error */
+.cmd-error {
+  color: #ff3333;
+  text-shadow: 0 0 5px #ff3333;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Loading State */
+.cmd-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.cmd-text {
+  font-size: 1.2rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.cmd-cursor {
+  font-size: 1.2rem;
+  color: #00ff00;
+  animation: flicker 0.5s infinite alternate;
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  animation: flicker 3s infinite alternate;
+  text-align: center;
+}
+
+/* Intro Text */
+.intro-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  line-height: 1.6;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 20, 0, 0.7);
+  border: 2px dashed #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Waitlist Form */
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.email-input,
+.x-handle-input {
+  background-color: rgba(0, 20, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #00ff00;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.email-input:focus,
+.x-handle-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.submit-button {
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.submit-button:hover {
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* X Handle Section */
+.x-handle-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.x-handle-label {
+  font-size: 1.1rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.x-handle-input-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.x-handle-input {
+  flex: 1;
+  background-color: rgba(0, 20, 0, 0.8);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #00ff00;
+  cursor: default;
+}
+
+.follow-button {
+  background-color: #00ff00;
+  color: #000;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: none;
+}
+
+.follow-button:hover {
+  background-color: #00cc00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.follow-instruction {
+  font-size: 0.9rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  text-align: center;
+}
+
+/* Follow Verified Message */
+.follow-verified {
+  font-size: 1rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  margin-bottom: 15px;
+}
+
+/* Timer */
+.cmd-timer {
+  font-size: 0.9rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: rgba(0, 20, 0, 0.8);
+  border: 2px solid #00ff00;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  position: relative;
+}
+
+.popup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 255, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.popup-title {
+  font-size: 1.8rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  margin-bottom: 15px;
+}
+
+.popup-message {
+  font-size: 1rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  margin-bottom: 20px;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.share-button {
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.share-button:hover {
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.popup-button {
+  background-color: #00ff00;
+  color: #000;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: none;
+}
+
+.popup-button:hover {
+  background-color: #00cc00;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* Responsive Adjustments */
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+  .waitlist-container {
+    padding: 10px;
+  }
+
+  .cmd-game,
+  .start-prompt,
+  .form-container {
+    padding: 15px;
+    margin: 10px auto;
+    min-height: 40vh;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .cmd-prompt,
+  .cmd-text,
+  .popup-title {
+    font-size: 1rem;
+  }
+
+  .cmd-input,
+  .email-input,
+  .x-handle-input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .cmd-submit,
+  .submit-button,
+  .follow-button,
+  .share-button,
+  .popup-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .cmd-form,
+  .x-handle-input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cmd-timer {
+    font-size: 0.8rem;
+  }
+
+  .popup {
+    padding: 15px;
+  }
+}
+
+/* Tablet Devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .waitlist-container {
+    padding: 15px;
+  }
+
+  .cmd-game,
+  .start-prompt,
+  .form-container {
+    max-width: 80%;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .cmd-input,
+  .email-input,
+  .x-handle-input {
+    padding: 9px;
+  }
+}
+
+/* Large Desktop (above 1200px) */
+@media (min-width: 1200px) {
+  .waitlist-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .cmd-game,
+  .start-prompt,
+  .form-container {
+    max-width: 600px;
+  }
+}
+
 /* Media Queries for Responsiveness */
 
 /* Adjust media queries for header */
