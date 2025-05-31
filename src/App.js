@@ -24,13 +24,13 @@ function App() {
                 <Features />
                 <CopyCa />
                 <Contact />
-                <Footer />
+               
               </>
             }
           />
           <Route path="/glitch" element={<ImageGlitchUploader />} />
         </Routes>
-        
+         <Footer />
       </div>
     </Router>
   );
