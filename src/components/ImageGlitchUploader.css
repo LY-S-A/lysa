@@ -3,8 +3,9 @@
 
 .crt-section {
   padding: 40px 20px;
-  background-color: rgba(0, 20, 0, 0.7);
+  background-color: rgba(0, 20, 0, 0.8); /* Darker background for contrast */
   position: relative;
+  overflow: hidden; /* Prevent overflow from pseudo-elements */
 }
 
 .crt-section--fullscreen {
@@ -12,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 8px; /* Match header height from style guide */
+  padding-top: 8px;
 }
 
 .crt-section::before {
@@ -26,11 +27,28 @@
     to bottom,
     transparent,
     transparent 2px,
-    rgba(0, 255, 0, 0.05) 2px,
-    rgba(0, 255, 0, 0.05) 4px
+    rgba(0, 255, 0, 0.2) 2px, /* Stronger green scanlines */
+    rgba(0, 255, 0, 0.2) 4px
   );
   pointer-events: none;
   z-index: 10;
+  animation: scanline-flicker 0.1s infinite; /* Fast flicker for CRT effect */
+}
+
+.crt-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 0, 0.1),
+    rgba(0, 100, 0, 0.5)
+  ); /* Green vignette overlay */
+  pointer-events: none;
+  z-index: 5;
 }
 
 .container {
@@ -41,6 +59,9 @@
   text-align: center;
   position: relative;
   box-sizing: border-box;
+  background: rgba(0, 20, 0, 0.5); /* Semi-transparent green-tinted container */
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
 .hero-content {
@@ -56,20 +77,20 @@ h2,
 h3 {
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   color: #00ff00;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
-  animation: flicker 3s infinite alternate;
+  text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00, 0 0 25px #00ff00; /* Stronger glow */
+  animation: flicker 2s infinite alternate; /* Faster flicker */
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 3px; /* Wider spacing for retro look */
 }
 
 h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 h3 {
@@ -83,7 +104,7 @@ p {
   font-size: 1rem;
   margin-bottom: 20px;
   line-height: 1.6;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00; /* Stronger text glow */
 }
 
 .input-wrapper {
@@ -94,15 +115,20 @@ p {
 }
 
 .input-field {
-  background-color: rgba(0, 20, 0, 0.8);
-  border: 2px solid #00ff00;
+  background-color: rgba(0, 20, 0, 0.9);
+  border: 3px solid #00ff00; /* Thicker border */
   color: #00ff00;
   padding: 10px;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   font-size: 1rem;
   width: 100%;
   box-sizing: border-box;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00; /* Stronger glow */
+  transition: box-shadow 0.3s;
+}
+
+.input-field:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
 }
 
 .image-grid {
@@ -115,7 +141,8 @@ p {
 .image-preview {
   padding: 20px;
   border: 2px dashed #00ff00;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 20, 0, 0.7);
+  position: relative;
 }
 
 .image-preview img,
@@ -123,8 +150,8 @@ p {
   max-width: 100%;
   height: auto;
   border: 2px solid #00ff00;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
-  animation: flicker 3s infinite alternate;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3); /* Stronger shadow */
+  animation: flicker 2s infinite alternate;
 }
 
 .crt-canvas {
@@ -140,7 +167,7 @@ p {
 
 .cta-button {
   background-color: transparent;
-  border: 2px solid #00ff00;
+  border: 3px solid #00ff00; /* Thicker border */
   color: #00ff00;
   padding: 10px 20px;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
@@ -148,24 +175,29 @@ p {
   cursor: pointer;
   transition: all 0.3s;
   min-width: 150px;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  text-shadow: 0 0 8px #00ff00, 0 0 15px #00ff00;
 }
 
 .cta-button:hover {
   background-color: #00ff00;
   color: #000;
   text-shadow: none;
-  box-shadow: 0 0 10px #00ff00;
+  box-shadow: 0 0 15px #00ff00; /* Stronger glow on hover */
 }
 
 @keyframes flicker {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.9; /* Slightly more pronounced flicker */
   }
+}
+
+@keyframes scanline-flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
 /* Responsive adjustments */
@@ -176,7 +208,7 @@ p {
 
   .crt-section--fullscreen {
     min-height: 100vh;
-    padding-top: 6px; /* Match header height on mobile */
+    padding-top: 6px;
   }
 
   .container {
@@ -226,7 +258,7 @@ p {
   }
 
   .crt-section--fullscreen {
-    padding-top: 7px; /* Match header height on tablet */
+    padding-top: 7px;
   }
 
   h1 {
