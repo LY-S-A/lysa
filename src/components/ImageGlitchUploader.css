@@ -25,26 +25,3 @@ svg.filters {
   height: 0;
 }
 
-/* Navigation links (from previous response) */
-.nav {
-  padding: 10px 0;
-  background-color: rgba(0, 20, 0, 0.8);
-  text-align: center;
-}
-
-.nav-link {
-  color: #00ff00;
-  text-decoration: none;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  font-size: 1rem;
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-  transition: all 0.3s;
-  padding: 5px 10px;
-}
-
-.nav-link:hover {
-  background-color: #00ff00;
-  color: #000;
-  text-shadow: none;
-  box-shadow: 0 0 10px #00ff00;
-}
