@@ -161,11 +161,9 @@ p {
 /* Just joined */
 .input-field {
   display: block;
-  width: 100%;
-  max-width: 300px; /* Adjust as needed */
   padding: 10px;
   border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: #f9f9f9;
   font-size: 16px;
   color: #333;
