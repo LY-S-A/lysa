@@ -204,68 +204,24 @@ const ImageGlitchUploader = () => {
       ctx.drawImage(img, 0, 0);
 
       // Apply stronger green-tinted scanlines
-      ctx.fillStyle = 'rgba(0, 255, 0, 0.15)';
-      for (let y = 0; y < canvas.height; y += 3) {
+      ctx.fillStyle = 'rgba(0, 255, 0, 0.15)'; // Increased opacity for stronger green
+      for (let y = 0; y < canvas.height; y += 3) { // Tighter scanlines
         ctx.fillRect(0, y, canvas.width, 2);
       }
 
       // Apply RGB split with stronger green dominance
-      let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      let data = imageData.data;
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
 
       for (let i = 0; i < data.length; i += 4) {
         // Reduce red and blue channels to emphasize green
-        data[i] *= 0.6;
-        data[i + 2] *= 0.6;
+        data[i] *= 0.6; // Dim red channel
+        data[i + 2] *= 0.6; // Dim blue channel
         // Enhance green channel with slight noise
         data[i + 1] = Math.min(255, data[i + 1] * (1 + (Math.random() * 0.2 - 0.1)));
         // Add random green noise for CRT effect
         if (Math.random() < 0.05) {
           data[i + 1] = Math.min(255, data[i + 1] + (Math.random() * 50));
-        }
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-
-      // Add glitchy grid lines (horizontal and vertical)
-      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      data = imageData.data;
-
-      // Horizontal glitch lines with random offsets
-      for (let y = 0; y < canvas.height; y += 5) { // Closer spacing for more lines
-        const offset = Math.random() * 10 - 5; // Random horizontal shift
-        for (let x = 0; x < canvas.width; x++) {
-          const pixelIndex = (y * canvas.width + x) * 4;
-          if (Math.random() < 0.3) { // 30% chance to draw glitchy pixel
-            data[pixelIndex] = 0; // Red
-            data[pixelIndex + 1] = 255; // Green
-            data[pixelIndex + 2] = 0; // Blue
-            data[pixelIndex + 3] = 255; // Alpha
-          }
-          // Add random offset glitch effect
-          const offsetIndex = ((y * canvas.width) + Math.max(0, Math.min(canvas.width - 1, x + offset))) * 4;
-          if (Math.random() < 0.1) { // 10% chance for offset glitch
-            data[offsetIndex + 1] = Math.min(255, (data[offsetIndex + 1] || 0) + 100);
-          }
-        }
-      }
-
-      // Vertical glitch lines with random offsets
-      for (let x = 0; x < canvas.width; x += 5) { // Closer spacing for more lines
-        const offset = Math.random() * 10 - 5; // Random vertical shift
-        for (let y = 0; y < canvas.height; y++) {
-          const pixelIndex = (y * canvas.width + x) * 4;
-          if (Math.random() < 0.3) { // 30% chance to draw glitchy pixel
-            data[pixelIndex] = 0; // Red
-            data[pixelIndex + 1] = 255; // Green
-            data[pixelIndex + 2] = 0; // Blue
-            data[pixelIndex + 3] = 255; // Alpha
-          }
-          // Add random offset glitch effect
-          const offsetIndex = (Math.max(0, Math.min(canvas.height - 1, y + offset)) * canvas.width + x) * 4;
-          if (Math.random() < 0.1) { // 10% chance for offset glitch
-            data[offsetIndex + 1] = Math.min(255, (data[offsetIndex + 1] || 0) + 100);
-          }
         }
       }
 
@@ -278,18 +234,16 @@ const ImageGlitchUploader = () => {
         0,
         canvas.width / 2,
         canvas.height / 2,
-        Math.max(canvas.width, canvas.height) / 1.8
+        Math.max(canvas.width, canvas.height) / 1.8 // Tighter vignette
       );
-      gradient.addColorStop(0, 'rgba(0, 255, 0, 0)');
-      gradient.addColorStop(1, 'rgba(0, 100, 0, 0.7)');
+      gradient.addColorStop(0, 'rgba(0, 255, 0, 0)'); // Green-tinted center
+      gradient.addColorStop(1, 'rgba(0, 100, 0, 0.7)'); // Darker green edges
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Add subtle green noise overlay
-      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      data = imageData.data;
       for (let i = 0; i < data.length; i += 4) {
-        if (Math.random() < 0.1) {
+        if (Math.random() < 0.1) { // 10% chance to add noise
           data[i + 1] = Math.min(255, data[i + 1] + (Math.random() * 30));
         }
       }
