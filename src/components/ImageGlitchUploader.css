@@ -7,6 +7,14 @@
   position: relative;
 }
 
+.crt-section--fullscreen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px; /* Match header height from style guide */
+}
+
 .crt-section::before {
   content: '';
   position: absolute;
@@ -35,11 +43,30 @@
   box-sizing: border-box;
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+h1,
 h2,
 h3 {
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   color: #00ff00;
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+  animation: flicker 3s infinite alternate;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -48,6 +75,15 @@ h3 {
 h3 {
   font-size: 1.3rem;
   margin-bottom: 10px;
+}
+
+p {
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  color: #00ff00;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
 }
 
 .input-wrapper {
@@ -138,8 +174,22 @@ h3 {
     padding: 30px 15px;
   }
 
+  .crt-section--fullscreen {
+    min-height: 100vh;
+    padding-top: 6px; /* Match header height on mobile */
+  }
+
   .container {
     padding: 10px;
+  }
+
+  .hero-content {
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
   }
 
   h2 {
@@ -148,6 +198,10 @@ h3 {
 
   h3 {
     font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
   }
 
   .input-field {
@@ -171,6 +225,14 @@ h3 {
     max-width: 95%;
   }
 
+  .crt-section--fullscreen {
+    padding-top: 7px; /* Match header height on tablet */
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
   h2 {
     font-size: 1.6rem;
   }
@@ -183,6 +245,10 @@ h3 {
 @media (min-width: 1200px) {
   .container {
     max-width: 1000px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
   }
 
   h2 {
