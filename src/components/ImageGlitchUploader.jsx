@@ -156,9 +156,10 @@
 
 
 import React, { useState, useRef } from 'react';
-import './CRTImageEffect.css';
+import './ImageGlitchUploader.css';
 
-const CRTImageEffect = () => {
+
+const ImageGlitchUploader = () => {
   const [imageSrc, setImageSrc] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
   const canvasRef = useRef(null);
@@ -323,4 +324,4 @@ const CRTImageEffect = () => {
   );
 };
 
-export default CRTImageEffect;
+export default ImageGlitchUploader;
