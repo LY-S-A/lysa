@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleJoinWaitlist = () => {
-      setIsLoading(true);
-      // Simulate loading delay before redirect (e.g., 1.5 seconds)
-      setTimeout(() => {
-        window.location.href = 'https://lysa-dev.vercel.app/';
-      }, 1500);
-    };
+    const navigate = useNavigate();
 
-    return (
+  // Function to handle navigation to /glitch
+  const handleNavigateToGlitch = () => {
+    navigate('/glitch');
+  };
+   
+  return (
         <section className="hero">
             <div className="container">
                 <h1>THE ALPHA HAS <span>AWAKEN</span></h1>
@@ -22,7 +22,7 @@ function Hero() {
                 </div>
                 <button
           className={`cta-button ${isLoading ? 'loading' : ''}`}
-          onClick={handleJoinWaitlist}
+          onClick={handleNavigateToGlitch}
           disabled={isLoading}
           aria-label="Join the LYSA waitlist"
         >
