@@ -131,9 +131,9 @@
 
 // export default ImageGlitchUploader;
 
-import React, { useState, useRef, useEffect } from 'react';
+
+import React, { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import './ImageGlitchUploader.css'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 const ImageGlitchUploader = () => {
@@ -203,7 +203,6 @@ const ImageGlitchUploader = () => {
       });
       return;
     }
-    // Generate a tweet with a description
     const tweetText = encodeURIComponent('Check out my retro CRT-glitched image! #CRTGlitch #Retro');
     const tweetUrl = `https://x.com/intent/tweet?text=${tweetText}`;
     window.open(tweetUrl, '_blank');
@@ -230,13 +229,10 @@ const ImageGlitchUploader = () => {
       canvas.width = img.width;
       canvas.height = img.height;
       const ctx = canvas.getContext('2d');
-      // Apply green tint and blur
       ctx.filter = 'url(#crt-blur) brightness(1.1)';
       ctx.drawImage(img, 0, 0);
-      // Add scan lines
       ctx.fillStyle = 'repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(0, 255, 0, 0.1) 2px, rgba(0, 255, 0, 0.1) 4px)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      // Trigger download
       const link = document.createElement('a');
       link.download = 'crt-glitched-image.png';
       link.href = canvas.toDataURL('image/png');
@@ -286,7 +282,7 @@ const ImageGlitchUploader = () => {
         pauseOnHover
         className="custom-toast-container"
       />
-      <div className="hero">
+      <section className="hero">
         <div className="hero-text">
           <h1>CRT Glitch Image Processor</h1>
           <p>Upload an image and apply a retro green CRT glitch effect!</p>
@@ -316,7 +312,7 @@ const ImageGlitchUploader = () => {
             </div>
           )}
         </div>
-      </div>
+      </section>
       {imageSrc && (
         <div className="image-container" style={{ textAlign: 'center', marginTop: '20px', position: 'relative' }}>
           <img
@@ -324,12 +320,6 @@ const ImageGlitchUploader = () => {
             alt="Uploaded"
             className={`uploaded-image ${isRotating ? 'rotate' : ''} ${isGlitched ? 'crt-glitch' : ''}`}
             onAnimationEnd={handleAnimationEnd}
-            style={{
-              maxWidth: '100%',
-              maxHeight: '400px',
-              border: '2px solid #00ff00',
-              boxShadow: '0 0 10px #00ff00',
-            }}
           />
           {isGlitched && (
             <div
