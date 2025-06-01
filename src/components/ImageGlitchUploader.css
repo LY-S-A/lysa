@@ -183,7 +183,7 @@ p {
   background-color: #00ff00;
   color: 000;
   border: none;
-  padding: 3px 16px;
+  padding: -13px 16px;
   border-radius: 2px;
   cursor: pointer;
   font-weight: 500;
@@ -192,7 +192,7 @@ p {
 
 /* Hover effect for the button */
 .input-field[type="file"]::file-selector-button:hover {
-  background-color: #0056b3;
+  background-color: #00cc00;
 }
 
 /* Focus and active states */
