@@ -183,7 +183,8 @@ p {
   background-color: #00ff00;
   color: 000;
   border: none;
-  padding: -13px 16px;
+  height: 30px;
+  padding: 3px 16px;
   border-radius: 2px;
   cursor: pointer;
   font-weight: 500;
