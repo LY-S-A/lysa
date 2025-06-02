@@ -1,7 +1,7 @@
 // ./components/leaderboard.jsx
 import React from 'react';
 
-
+function Leaderboard () {
   return (
     <section className="leaderboard">
       <div className="container">
