@@ -7,7 +7,7 @@ import CopyCa from './components/ca';
 import Contact from './components/contact';
 import Footer from './components/footer';
 import LeaderBoard from './components/leaderboard';
-import ImageGlitchUploader from './components/ImageGlitchUploader'; // Assuming this is the file for the component
+import ImageGlitchUploader from './components/ImageGlitchUploader'; 
 import './App.css';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
                 <Hero />
                 <About />
                 <Features />
-                <Leaderboard />
+                <LeaderBoard />
                 <CopyCa />
                 <Contact />
                
