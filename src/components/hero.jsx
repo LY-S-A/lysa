@@ -24,9 +24,9 @@ function Hero() {
           className={`cta-button ${isLoading ? 'loading' : ''}`}
           onClick={handleNavigateToGlitch}
           disabled={isLoading}
-          aria-label="Join the LYSA waitlist"
+          aria-label="Get LYΣARATED"
         >
-          {isLoading ? 'Loading...' : 'Join Waitlist'}
+          {isLoading ? 'Loading...' : 'Get LYΣARATED'}
         </button>
             </div>
         </section>
