@@ -396,7 +396,7 @@ h2 {
 /* Leaderboard Section */
 .leaderboard {
   padding: 40px 20px;
-  background-color: rgba(0, 20, 0, 0.7); /* Matches other sections like .about and .copyca */
+/*   background-color: rgba(0, 20, 0, 0.7); */
   position: relative;
   z-index: 1; /* Ensure content is above scan lines */
 }
