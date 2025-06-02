@@ -122,8 +122,8 @@ const ImageGlitchUploader = () => {
       <div className="container">
         {!imageSrc ? (
           <div className="hero-content">
-            <h1>CRT Image Processor</h1>
-            <p>Upload an image to apply a retro CRT effect!</p>
+            <h1>Get LYΣARATED</h1>
+            <p>Upload an image to apply a LYΣARATED effect!</p>
             <div className="input-wrapper">
               <input
                 type="file"
@@ -136,7 +136,7 @@ const ImageGlitchUploader = () => {
           </div>
         ) : (
           <>
-            <h2>CRT Image Processor</h2>
+            <h2>LYΣARATED Image Processor</h2>
             <div className="input-wrapper">
               <input
                 type="file"
@@ -152,7 +152,7 @@ const ImageGlitchUploader = () => {
                 <img src={imageSrc} alt="Original" />
               </div>
               <div className="image-preview">
-                <h3>CRT Effect</h3>
+                <h3>LYΣARATED Effect</h3>
                 <canvas ref={canvasRef} className="crt-canvas" />
               </div>
             </div>
