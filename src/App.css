@@ -393,7 +393,62 @@ h2 {
   margin: 0 10px;
 }
 
+/* Leaderboard Section */
+.leaderboard {
+  padding: 40px 20px;
+  background-color: rgba(0, 20, 0, 0.7); /* Matches other sections like .about and .copyca */
+  position: relative;
+  z-index: 1; /* Ensure content is above scan lines */
+}
+
+/* Leaderboard button */
+.leaderboard button {
+  background-color: transparent;
+  border: 2px solid #00ff00; /* Neon green border */
+  color: #00ff00; /* Neon green text */
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  min-width: 150px; /* Matches .cta-button */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
+}
+
+.leaderboard button:hover {
+  background-color: #00ff00; /* Neon green background on hover */
+  color: #000; /* Black text on hover */
+  text-shadow: none; /* Remove glow on hover */
+  box-shadow: 0 0 10px #00ff00; /* Glow shadow */
+}
+
+
 /* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .leaderboard {
+    padding: 30px 15px; /* Matches mobile padding for .about, .features, .copyca */
+  }
+
+  .leaderboard button {
+    padding: 8px 16px; /* Matches mobile .cta-button */
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .leaderboard {
+    padding: 40px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .leaderboard .container {
+    max-width: 1000px; /* Matches large desktop .container */
+  }
+}
 
 /* Adjust media queries for header */
 @media (max-width: 768px) {
