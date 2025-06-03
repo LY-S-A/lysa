@@ -8,6 +8,7 @@ import Contact from './components/contact';
 import Footer from './components/footer';
 import LeaderBoard from './components/leaderboard';
 import ImageGlitchUploader from './components/ImageGlitchUploader'; 
+import MainLeaderboard from './components/mainLeaderboard'; 
 import './App.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             }
           />
           <Route path="/glitch" element={<ImageGlitchUploader />} />
+          <Route path="/main-leaderboard" element={<ImageGlitchUploader />} />
         </Routes>
          <Footer />
       </div>
