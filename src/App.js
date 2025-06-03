@@ -32,7 +32,7 @@ function App() {
             }
           />
           <Route path="/glitch" element={<ImageGlitchUploader />} />
-          <Route path="/main-leaderboard" element={<ImageGlitchUploader />} />
+          <Route path="/main-leaderboard" element={<MainLeaderboard />} />
         </Routes>
          <Footer />
       </div>
