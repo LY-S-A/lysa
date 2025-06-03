@@ -433,7 +433,7 @@ h2 {
 
 .leaderboard-container h2 {
   text-align: center; /* Explicitly center the text */
-  margin: 10px auto 20px; /* Add bottom margin for spacing */
+  margin: 60px auto 30px; /* Add bottom margin for spacing */
   font-size: 1.8rem; /* Match existing h2 styling */
   letter-spacing: 1px; /* Match existing h2 styling */
   text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Match glow effect */
