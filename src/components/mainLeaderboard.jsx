@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Sample data for the leaderboard with rewards
 const leaderboardData = [
-  { email: 'coinflipper07@gmail.com', walletAddress: 'DgvAN...K7cC', rewards:  },
+  { email: 'coinflipper07@gmail.com', walletAddress: 'DgvAN...K7cC', rewards: 2000  },
   { email: 'mihzeleganzy451@gmail.com', walletAddress: 'CSswE...Drz4', rewards: 1200 },
   { email: 'edebak42@gmail.com', walletAddress: 'Dmtw4...bc3m', rewards: 1100 },
   { email: 'fetugayusuf@gmail.com', walletAddress: 'AvSQX...fPdm', rewards: 1000 },
