@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function CopyCa() {
   const [copied, setCopied] = useState(false);
-  const textToCopy = "EApf5MjFz7ipcrueN98MvGTmMU29PNgmsA5dVFmhWW6p"; // Replace with the actual text/link you want to copy
+  const textToCopy = "ss2M1gypo8WA1VmrcDuUhSD5KNTxAWXZTZ3Z68xpump"; // Replace with the actual text/link you want to copy
 
   const handleCopy = () => {
     navigator.clipboard.writeText(textToCopy).then(() => {
