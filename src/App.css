@@ -395,66 +395,71 @@ h2 {
 
 /* Leaderboard Section */
 .leaderboard {
-  padding: 40px 20px;
-  background-color: rgba(0, 20, 0, 0.8); /* Increased opacity for better contrast */
+  padding: 30px 15px; /* Mobile-first */
+  background-color: rgba(0, 20, 0, 0.8);
   position: relative;
-  z-index: 1; /* Ensure content is above scan lines */
-  border: 2px solid #00ff00; /* Added border to match .cta-button */
-  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.3); /* Enhanced shadow for depth */
+  z-index: 1;
+  border: 1px solid #00ff00;
+  box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
 /* Leaderboard button */
 .leaderboard button {
   background-color: transparent;
-  border: 2px solid #00ff00; /* Neon green border */
-  color: #00ff00; /* Neon green text */
-  padding: 12px 24px; /* Slightly larger padding for better click area */
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 10px 20px;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
-  font-size: 1rem;
-  font-weight: 700; /* Bold for emphasis */
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  min-width: 160px; /* Slightly larger than .cta-button for prominence */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; /* Subtle glow */
-  margin: 0 auto 20px; /* Center button and add spacing below */
-  display: block; /* Ensure button is block-level for centering */
-  border-radius: 2px; /* Slight rounding for retro polish */
+  min-width: 140px;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  margin: 0 auto 20px;
+  display: block;
+  border-radius: 2px;
 }
 
 .leaderboard button:hover {
-  background-color: #00ff00; /* Neon green background on hover */
-  color: #000; /* Black text on hover */
-  text-shadow: none; /* Remove glow on hover */
-  box-shadow: 0 0 12px #00ff00, 0 0 24px #00ff00; /* Enhanced glow shadow */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 12px #00ff00, 0 0 24px #00ff00;
+  transform: translateY(-2px);
+}
+
+.leaderboard button:focus {
+  outline: 2px solid #00ff00;
+  outline-offset: 2px;
+  box-shadow: 0 0 12px #00ff00;
 }
 
 .leaderboard-container h2 {
-  text-align: center; /* Explicitly center the text */
-  margin: 60px auto 30px; /* Add bottom margin for spacing */
-  font-size: 1.8rem; /* Match existing h2 styling */
-  letter-spacing: 1px; /* Match existing h2 styling */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Match glow effect */
-  animation: flicker 3s infinite alternate; /* Retain flicker animation */
+  text-align: center;
+  margin: 40px auto 20px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  animation: flicker 3s ease-in-out 2;
 }
 
 /* Table Styling */
 .leaderboard-table {
   width: 100%;
-  max-width: 1000px; /* Match .container max-width for consistency */
-  margin: 0 auto; /* Center table */
+  max-width: 1000px;
+  margin: 0 auto;
   border-collapse: collapse;
-  background-color: rgba(0, 20, 0, 0.9); /* Slightly darker for contrast */
+  background-color: rgba(0, 20, 0, 0.9);
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-  color: #00ff00;
-  box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3); /* Slightly stronger shadow */
+  color: #33ff33; /* Lighter green for better contrast */
+  box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3);
   position: relative;
-  border: 1px solid #00ff00; /* Thin border for definition */
+  border: 1px solid #00ff00;
 }
 
-/* Scan lines overlay for table */
 .leaderboard-table::before {
   content: '';
   position: absolute;
@@ -466,8 +471,8 @@ h2 {
     to bottom,
     transparent,
     transparent 2px,
-    rgba(0, 255, 0, 0.08) 2px, /* Slightly stronger scan lines */
-    rgba(0, 255, 0, 0.08) 4px
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 255, 0, 0.05) 4px
   );
   pointer-events: none;
   z-index: 10;
@@ -475,126 +480,123 @@ h2 {
 
 /* Table Headers */
 .leaderboard-table th {
-  background-color: rgba(0, 20, 0, 1); /* Fully opaque for prominence */
+  background-color: rgba(0, 20, 0, 1);
   color: #00ff00;
   font-weight: 700;
-  padding: 16px 20px; /* Increased padding for better spacing */
+  padding: 10px 12px;
   text-align: left;
-  border-bottom: 2px solid #00ff00; /* Neon green border */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Reduced glow for clarity */
-  animation: flicker 3s infinite alternate; /* Retain flicker animation */
+  border-bottom: 2px solid #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  animation: flicker 3s ease-in-out 2;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 1.1rem; /* Slightly larger for hierarchy */
+  font-size: 1rem;
 }
 
 .leaderboard-table th:hover {
-  background-color: #00ff00; /* Neon green background on hover */
-  color: #000; /* Black text on hover */
-  text-shadow: none; /* Remove glow on hover */
-  box-shadow: 0 0 12px #00ff00; /* Subtle glow shadow */
+  background-color: #00ff00;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 12px #00ff00;
+}
+
+.leaderboard-table th:focus {
+  outline: 2px solid #00ff00;
+  outline-offset: 2px;
 }
 
 /* Table Data */
 .leaderboard-table td {
-  padding: 14px 20px; /* Slightly reduced padding for tighter rows */
-  border-bottom: 1px solid rgba(0, 255, 0, 0.3); /* Stronger border for visibility */
-  text-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00; /* Subtler glow for readability */
-  font-size: 1rem;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+  text-shadow: 0 0 2px #00ff00;
+  font-size: 0.9rem;
 }
 
-/* Align Rewards column to the right */
 .leaderboard-table td:nth-child(3) {
   text-align: right;
 }
 
-/* Highlight top 3 rows */
 .leaderboard-table tr:nth-child(1) {
-  background-color: rgba(0, 255, 0, 0.15); /* Gold-like glow for 1st */
+  background-color: rgba(0, 255, 0, 0.15);
 }
 .leaderboard-table tr:nth-child(2) {
-  background-color: rgba(0, 255, 0, 0.1); /* Silver-like glow for 2nd */
+  background-color: rgba(0, 255, 0, 0.1);
 }
 .leaderboard-table tr:nth-child(3) {
-  background-color: rgba(0, 255, 0, 0.08); /* Bronze-like glow for 3rd */
+  background-color: rgba(0, 255, 0, 0.08);
 }
 
-/* Hover effect for rows */
 .leaderboard-table tr:hover {
-  background-color: rgba(0, 255, 0, 0.2); /* Stronger hover effect */
+  background-color: rgba(0, 255, 0, 0.2);
   transition: background-color 0.2s ease;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .leaderboard {
-    padding: 30px 15px; /* Match mobile padding for other sections */
-    border-width: 1px; /* Thinner border for smaller screens */
-  }
-
-  .leaderboard button {
-    padding: 10px 20px; /* Match mobile .cta-button */
-    font-size: 0.9rem;
-    min-width: 140px; /* Slightly smaller for mobile */
-  }
-
-  .leaderboard-table {
-    font-size: 0.9rem; /* Match .cta-button font size */
-  }
-
-  .leaderboard-table th,
-  .leaderboard-table td {
-    padding: 12px 15px; /* Reduced padding for mobile */
-    font-size: 0.9rem;
-  }
-
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .leaderboard-container h2,
   .leaderboard-table th {
-    font-size: 1rem; /* Slightly larger for headers */
-  }
-
-  .container {
-    padding: 10px; /* Match mobile .container */
+    animation: none;
+    text-shadow: none;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Responsive Adjustments */
+@media (min-width: 769px) {
   .leaderboard {
-    padding: 40px 20px; /* Match tablet padding */
+    padding: 40px 20px;
+    border: 2px solid #00ff00;
+    box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+
+  .leaderboard button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-width: 150px;
+  }
+
+  .leaderboard-container h2 {
+    font-size: 1.8rem;
+    margin: 60px auto 30px;
   }
 
   .leaderboard-table {
-    max-width: 95%; /* Match tablet .container */
+    max-width: 95%;
   }
 
   .leaderboard-table th,
   .leaderboard-table td {
+    padding: 12px 15px;
     font-size: 1rem;
-    padding: 14px 18px; /* Slightly adjusted for tablet */
   }
 
-  .leaderboard button {
-    min-width: 150px;
+  .leaderboard-table th {
+    font-size: 1.1rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .leaderboard .container {
-    max-width: 1000px; /* Match large desktop .container */
-  }
-
+  .leaderboard .container,
   .leaderboard-table {
-    max-width: 1000px; /* Consistent with .container */
+    max-width: 1000px;
   }
 
   .leaderboard-table th,
   .leaderboard-table td {
-    font-size: 1.1rem; /* Slightly larger for desktop */
-    padding: 16px 20px; /* Larger padding for desktop */
+    padding: 14px 18px;
+    font-size: 1.1rem;
   }
 
   .leaderboard button {
-    min-width: 180px; /* Larger for desktop */
+    min-width: 160px;
     font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .leaderboard .container,
+  .leaderboard-table {
+    max-width: 1200px;
   }
 }
 
