@@ -424,6 +424,129 @@ h2 {
   box-shadow: 0 0 10px #00ff00; /* Glow shadow */
 }
 
+/* Leaderboard Section */
+.leaderboard {
+  padding: 40px 20px;
+  background-color: rgba(0, 20, 0, 0.7);
+  position: relative;
+  z-index: 1; /* Ensure content is above scan lines */
+}
+
+/* Table Styling */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 20, 0, 0.8);
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+  color: #00ff00;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2); /* Match .app shadow */
+  position: relative;
+}
+
+/* Scan lines overlay for table */
+.leaderboard-table::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.05) 2px,
+    rgba(0, 255, 0, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Table Headers */
+.leaderboard-table th {
+  background-color: rgba(0, 20, 0, 0.9);
+  color: #00ff00;
+  font-weight: 700;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #00ff00; /* Neon green border */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
+  animation: flicker 3s infinite alternate; /* Flicker animation */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.leaderboard-table th:hover {
+  background-color: #00ff00; /* Neon green background on hover */
+  color: #000; /* Black text on hover */
+  text-shadow: none; /* Remove glow on hover */
+  box-shadow: 0 0 10px #00ff00; /* Glow shadow */
+}
+
+/* Table Data */
+.leaderboard-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2); /* Subtle neon green border */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Subtle glow */
+}
+
+/* Align Rewards column to the right */
+.leaderboard-table td:nth-child(3) {
+  text-align: right;
+}
+
+/* Hover effect for rows */
+.leaderboard-table tr:hover {
+  background-color: rgba(0, 255, 0, 0.1); /* Subtle neon green background */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .leaderboard {
+    padding: 30px 15px; /* Match mobile padding for other sections */
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 10px; /* Reduced padding for mobile */
+    font-size: 0.9rem; /* Match .cta-button font size */
+  }
+
+  .leaderboard-table th {
+    font-size: 1rem; /* Slightly larger for headers */
+  }
+
+  .container {
+    padding: 10px; /* Match mobile .container */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .leaderboard {
+    padding: 40px 20px; /* Match tablet padding */
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    font-size: 1rem;
+  }
+
+  .container {
+    max-width: 95%; /* Match tablet .container */
+  }
+}
+
+@media (min-width: 1200px) {
+  .leaderboard .container {
+    max-width: 1000px; /* Match large desktop .container */
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    font-size: 1.1rem; /* Slightly larger for desktop */
+  }
+}
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
