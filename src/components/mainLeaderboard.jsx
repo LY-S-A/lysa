@@ -18,7 +18,6 @@ const leaderboardData = [
   { email: 'zaeeynaab@gmail.com', walletAddress: '4EQrB...2ZJ2', rewards: 800 },
   { email: 'bredbeee1@gmail.com', walletAddress: '6CCU6...XgAt', rewards: 700 },
   { email: 'crushzani@gmail.com', walletAddress: '4LuHH...5TaM', rewards: 700 },
-  { email: 'maleekolatunji@gmail.com', walletAddress: 'HUaSK....zzkQ', rewards: 1000 },
 ];
 
 const Leaderboard = () => {
