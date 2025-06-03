@@ -431,6 +431,15 @@ h2 {
   transform: translateY(-2px); /* Slight lift effect */
 }
 
+.leaderboard-container h2 {
+  text-align: center; /* Explicitly center the text */
+  margin: 0 auto 20px; /* Add bottom margin for spacing */
+  font-size: 1.8rem; /* Match existing h2 styling */
+  letter-spacing: 1px; /* Match existing h2 styling */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Match glow effect */
+  animation: flicker 3s infinite alternate; /* Retain flicker animation */
+}
+
 /* Table Styling */
 .leaderboard-table {
   width: 100%;
