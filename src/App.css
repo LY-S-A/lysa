@@ -396,9 +396,11 @@ h2 {
 /* Leaderboard Section */
 .leaderboard {
   padding: 40px 20px;
-/*   background-color: rgba(0, 20, 0, 0.7); */
+  background-color: rgba(0, 20, 0, 0.8); /* Increased opacity for better contrast */
   position: relative;
   z-index: 1; /* Ensure content is above scan lines */
+  border: 2px solid #00ff00; /* Added border to match .cta-button */
+  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.3); /* Enhanced shadow for depth */
 }
 
 /* Leaderboard button */
@@ -406,41 +408,41 @@ h2 {
   background-color: transparent;
   border: 2px solid #00ff00; /* Neon green border */
   color: #00ff00; /* Neon green text */
-  padding: 10px 20px;
+  padding: 12px 24px; /* Slightly larger padding for better click area */
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   font-size: 1rem;
+  font-weight: 700; /* Bold for emphasis */
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease; /* Smooth transition */
   position: relative;
   overflow: hidden;
-  min-width: 150px; /* Matches .cta-button */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
+  min-width: 160px; /* Slightly larger than .cta-button for prominence */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; /* Subtle glow */
+  margin: 0 auto 20px; /* Center button and add spacing below */
+  display: block; /* Ensure button is block-level for centering */
+  border-radius: 2px; /* Slight rounding for retro polish */
 }
 
 .leaderboard button:hover {
   background-color: #00ff00; /* Neon green background on hover */
   color: #000; /* Black text on hover */
   text-shadow: none; /* Remove glow on hover */
-  box-shadow: 0 0 10px #00ff00; /* Glow shadow */
-}
-
-/* Leaderboard Section */
-.leaderboard {
-  padding: 40px 20px;
-  background-color: rgba(0, 20, 0, 0.7);
-  position: relative;
-  z-index: 1; /* Ensure content is above scan lines */
+  box-shadow: 0 0 12px #00ff00, 0 0 24px #00ff00; /* Enhanced glow shadow */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Table Styling */
 .leaderboard-table {
   width: 100%;
+  max-width: 1000px; /* Match .container max-width for consistency */
+  margin: 0 auto; /* Center table */
   border-collapse: collapse;
-  background-color: rgba(0, 20, 0, 0.8);
+  background-color: rgba(0, 20, 0, 0.9); /* Slightly darker for contrast */
   font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
   color: #00ff00;
-  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2); /* Match .app shadow */
+  box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3); /* Slightly stronger shadow */
   position: relative;
+  border: 1px solid #00ff00; /* Thin border for definition */
 }
 
 /* Scan lines overlay for table */
@@ -455,8 +457,8 @@ h2 {
     to bottom,
     transparent,
     transparent 2px,
-    rgba(0, 255, 0, 0.05) 2px,
-    rgba(0, 255, 0, 0.05) 4px
+    rgba(0, 255, 0, 0.08) 2px, /* Slightly stronger scan lines */
+    rgba(0, 255, 0, 0.08) 4px
   );
   pointer-events: none;
   z-index: 10;
@@ -464,30 +466,32 @@ h2 {
 
 /* Table Headers */
 .leaderboard-table th {
-  background-color: rgba(0, 20, 0, 0.9);
+  background-color: rgba(0, 20, 0, 1); /* Fully opaque for prominence */
   color: #00ff00;
   font-weight: 700;
-  padding: 15px;
+  padding: 16px 20px; /* Increased padding for better spacing */
   text-align: left;
   border-bottom: 2px solid #00ff00; /* Neon green border */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
-  animation: flicker 3s infinite alternate; /* Flicker animation */
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Reduced glow for clarity */
+  animation: flicker 3s infinite alternate; /* Retain flicker animation */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  font-size: 1.1rem; /* Slightly larger for hierarchy */
 }
 
 .leaderboard-table th:hover {
   background-color: #00ff00; /* Neon green background on hover */
   color: #000; /* Black text on hover */
   text-shadow: none; /* Remove glow on hover */
-  box-shadow: 0 0 10px #00ff00; /* Glow shadow */
+  box-shadow: 0 0 12px #00ff00; /* Subtle glow shadow */
 }
 
 /* Table Data */
 .leaderboard-table td {
-  padding: 15px;
-  border-bottom: 1px solid rgba(0, 255, 0, 0.2); /* Subtle neon green border */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Subtle glow */
+  padding: 14px 20px; /* Slightly reduced padding for tighter rows */
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3); /* Stronger border for visibility */
+  text-shadow: 0 0 4px #00ff00, 0 0 8px #00ff00; /* Subtler glow for readability */
+  font-size: 1rem;
 }
 
 /* Align Rewards column to the right */
@@ -495,21 +499,44 @@ h2 {
   text-align: right;
 }
 
+/* Highlight top 3 rows */
+.leaderboard-table tr:nth-child(1) {
+  background-color: rgba(0, 255, 0, 0.15); /* Gold-like glow for 1st */
+}
+.leaderboard-table tr:nth-child(2) {
+  background-color: rgba(0, 255, 0, 0.1); /* Silver-like glow for 2nd */
+}
+.leaderboard-table tr:nth-child(3) {
+  background-color: rgba(0, 255, 0, 0.08); /* Bronze-like glow for 3rd */
+}
+
 /* Hover effect for rows */
 .leaderboard-table tr:hover {
-  background-color: rgba(0, 255, 0, 0.1); /* Subtle neon green background */
+  background-color: rgba(0, 255, 0, 0.2); /* Stronger hover effect */
+  transition: background-color 0.2s ease;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .leaderboard {
     padding: 30px 15px; /* Match mobile padding for other sections */
+    border-width: 1px; /* Thinner border for smaller screens */
+  }
+
+  .leaderboard button {
+    padding: 10px 20px; /* Match mobile .cta-button */
+    font-size: 0.9rem;
+    min-width: 140px; /* Slightly smaller for mobile */
+  }
+
+  .leaderboard-table {
+    font-size: 0.9rem; /* Match .cta-button font size */
   }
 
   .leaderboard-table th,
   .leaderboard-table td {
-    padding: 10px; /* Reduced padding for mobile */
-    font-size: 0.9rem; /* Match .cta-button font size */
+    padding: 12px 15px; /* Reduced padding for mobile */
+    font-size: 0.9rem;
   }
 
   .leaderboard-table th {
@@ -526,13 +553,18 @@ h2 {
     padding: 40px 20px; /* Match tablet padding */
   }
 
+  .leaderboard-table {
+    max-width: 95%; /* Match tablet .container */
+  }
+
   .leaderboard-table th,
   .leaderboard-table td {
     font-size: 1rem;
+    padding: 14px 18px; /* Slightly adjusted for tablet */
   }
 
-  .container {
-    max-width: 95%; /* Match tablet .container */
+  .leaderboard button {
+    min-width: 150px;
   }
 }
 
@@ -541,35 +573,19 @@ h2 {
     max-width: 1000px; /* Match large desktop .container */
   }
 
+  .leaderboard-table {
+    max-width: 1000px; /* Consistent with .container */
+  }
+
   .leaderboard-table th,
   .leaderboard-table td {
     font-size: 1.1rem; /* Slightly larger for desktop */
-  }
-}
-
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .leaderboard {
-    padding: 30px 15px; /* Matches mobile padding for .about, .features, .copyca */
+    padding: 16px 20px; /* Larger padding for desktop */
   }
 
   .leaderboard button {
-    padding: 8px 16px; /* Matches mobile .cta-button */
-    font-size: 0.9rem;
-    min-width: 120px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .leaderboard {
-    padding: 40px 20px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .leaderboard .container {
-    max-width: 1000px; /* Matches large desktop .container */
+    min-width: 180px; /* Larger for desktop */
+    font-size: 1.1rem;
   }
 }
 
